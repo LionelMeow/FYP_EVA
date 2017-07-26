@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+@if (TempData["ActionMessage"] != null)
+{
+    <div>
+        <h2>@TempData["ActionMessage"]</h2>
+    </div>
+}
+
+<div class="well well-lg" style="text-align: center;">
+    <h1>Login as a Volunteer, Event Organisers or a Admin</h1>
+    <div class="container" style="text-align: center;">
+        <button type="button" class="btn btn-primary btn-lg">
+            @Html.ActionLink("Login for Volunteer", "Login", "Volunteers", null, new { @style = "color:white" })
+        </button>
+        <button type="button" class="btn btn-success btn-lg">
+            @Html.ActionLink("Login for Event Organiser", "Login", "Organisers", null, new { @style = "color:white" })
+        </button>
+        <button type="button" class="btn btn-danger btn-lg">
+            @Html.ActionLink("Login for Admin", "Admin", "Home", null, new { @style = "color:white" })
+        </button>
+    </div>  
+    <div class="container" style="text-align: center;margin: 20px;">
+        <button type="button" class="btn btn-primary btn-lg">
+            @Html.ActionLink("Register for Volunteer", "Create", "Volunteers", null, new { @style = "color:white" })
+        </button>
+        <button type="button" class="btn btn-success btn-lg">
+            @Html.ActionLink("Register for Event Organiser", "Create", "Organisers", null, new { @style = "color:white" })
+        </button>
+    </div>
+</div>
+

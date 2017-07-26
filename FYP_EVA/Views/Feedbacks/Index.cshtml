@@ -1,0 +1,88 @@
+﻿@model IEnumerable<FYP_EVA.Models.Feedback>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Event.EventID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Event.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Organiser.OrganiserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer.TPNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teamwork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Communication)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Initiative)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supportiveness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Professionalism)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event.EventID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Organiser.OrganiserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer.TPNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teamwork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Communication)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Initiative)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supportiveness)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Professionalism)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FeedbackID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackID })
+            @Html.ActionLink("Approve", "Approve", new { id = item.FeedbackID })
+        </td>
+    </tr>
+}
+
+</table>

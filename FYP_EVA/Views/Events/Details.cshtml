@@ -1,0 +1,74 @@
+﻿@model FYP_EVA.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Organiser.OrganiserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organiser.OrganiserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VolunteerLimit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VolunteerLimit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FYP_EVA.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Organiser.OrganiserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VolunteerLimit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventMessage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Organiser.OrganiserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VolunteerLimit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventMessage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EventID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EventID }) |
+            @Html.ActionLink("Finish", "FinishAction", new { id = item.EventID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<FYP_EVA.Models.Event>
+
+@{
+    ViewBag.Title = "Main Page";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading"><h3 style="text-transform:capitalize;text-align:center">Affilated Events</h3></div>
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VolunteerLimit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventStatus)
+                </th>
+                <th>
+                    Volunteer List
+                </th>
+            </tr>
+
+@foreach (var item in Model)
+{
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VolunteerLimit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventStatus)
+                    </td>
+                    <td>
+                       @*Html.ActionLink("List of Volunteers","VolunteerList", new { id=item.EventID })*@
+                        @foreach (var vitem in item.VolunteerList)
+                        {
+                            <li>@Html.DisplayFor(modelItem => vitem.VolunteerName)
+                                <ul>
+                                    <li>Phone Number - @Html.DisplayFor(modelItem => vitem.PhoneNumber)</li>
+                                    <li>TP - @Html.DisplayFor(modelItem => vitem.TPNumber)</li>
+                                    <li>Intake - @Html.DisplayFor(modelItem => vitem.Intake)</li>
+                                </ul>
+                            </li>
+                            
+                        }
+                    </td>
+                </tr>
+}
+
+        </table>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("List of Events", "Index", "Events")
+</div>

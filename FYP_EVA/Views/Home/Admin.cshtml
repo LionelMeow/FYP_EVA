@@ -1,0 +1,37 @@
+﻿@model FYP_EVA.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Admin", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border: 1px solid red; margin-top: 10px;">
+            <h2>@ViewBag.Message</h2>
+        </div>
+    }
+    <div class="panel panel-danger" style="margin: auto;width: 50%;text-align:center">
+        <div class="panel-heading"><h2>Admin Login</h2></div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>@Html.LabelFor(a => a.UserID)</td>
+                    <td>@Html.TextBoxFor(a => a.UserID)</td>
+                    <td>@Html.ValidationMessageFor(a => a.UserID)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(a => a.Password)</td>
+                    <td>@Html.EditorFor(a => a.Password)</td>
+                    <td>@Html.ValidationMessageFor(a => a.Password)</td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-danger btn-lg" value="Login" style=" margin-top: 5%;">Login</button>
+        </div>
+    </div>
+}
+

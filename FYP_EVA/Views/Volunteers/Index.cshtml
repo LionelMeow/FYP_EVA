@@ -1,0 +1,121 @@
+﻿@model IEnumerable<FYP_EVA.Models.Volunteer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TPNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VolunteerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Intake)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teamwork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Communication)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Initiative)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supportiveness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Professionalism)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReligionPreferences)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VolunteerGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VolunteerCountryOfOrigin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TPNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VolunteerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Intake)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teamwork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Communication)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Initiative)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supportiveness)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Professionalism)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReligionPreferences)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VolunteerGender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VolunteerCountryOfOrigin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+           @if (Convert.ToString(Session["UserType"]) != "Volunteer")
+           {
+            @Html.ActionLink("Edit", "Edit", new { id = item.VolunteerID }) <span>|</span>
+            @Html.ActionLink("Details", "Details", new { id = item.VolunteerID }) <span>|</span>
+            @Html.ActionLink("Delete", "Delete", new { id = item.VolunteerID }) <span>|</span>
+            @Html.ActionLink("Profile", "Profile", new { id = item.VolunteerID })
+           }
+        </td>
+    </tr>
+}
+
+</table>

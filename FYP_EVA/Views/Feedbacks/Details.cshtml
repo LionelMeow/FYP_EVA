@@ -1,0 +1,90 @@
+﻿@model FYP_EVA.Models.Feedback
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Feedback</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event.EventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event.EventName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organiser.OrganiserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organiser.OrganiserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volunteer.TPNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volunteer.TPNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teamwork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teamwork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Communication)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Communication)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Initiative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Initiative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supportiveness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supportiveness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Professionalism)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Professionalism)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FeedbackID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

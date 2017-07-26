@@ -1,0 +1,28 @@
+﻿@model FYP_EVA.Models.Volunteer
+@{
+    ViewBag.Title = "MainPage";
+}
+
+<h2>Data Analytic of Volunteers in EVA </h2>
+
+
+@{
+    Html.RenderAction("ViewBestCommunication", "Home");
+}
+
+
+@{
+    Html.RenderAction("ViewBestInitiative", "Home");
+}
+
+@{
+    Html.RenderAction("ViewBestProfessionalism", "Home");
+}
+
+@{
+    Html.RenderAction("ViewBestSupportiveness", "Home");
+}
+
+@{
+    Html.RenderAction("ViewBestTeamwork", "Home");
+}

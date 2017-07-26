@@ -1,0 +1,119 @@
+﻿@model  FYP_EVA.Models.Volunteer
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div class="panel panel-success">
+    <div class="panel-body"><h2>Personal Profile - @Html.Raw(Model.VolunteerName)</h2></div>
+    <table class="table-condensed" style="margin-left: 50px;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VolunteerName)
+                :
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.VolunteerName)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TPNumber)
+                :
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.TPNumber)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Intake)
+                :
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Intake)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+                :
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Email)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+                :
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </th>
+        </tr>
+    </table>
+    <div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+</div>
+<button type="button" class="btn btn-primary" onclick="winprint()">Print this page</button>
+<script type="text/javascript">
+    function winprint() {
+        window.print();
+    };
+
+    var teamwork = @Html.Raw(Json.Encode(Model.Teamwork));
+    var comm = @Html.Raw(Json.Encode(Model.Communication));
+    var init = @Html.Raw(Json.Encode(Model.Initiative));    
+    var supp = @Html.Raw(Json.Encode(Model.Supportiveness));
+    var prof = @Html.Raw(Json.Encode(Model.Professionalism));
+    var name =  @Html.Raw(Json.Encode(Model.TPNumber));
+
+    Highcharts.chart('container', {
+
+        chart: {
+            polar: true,
+            type: 'line',
+        },
+
+        title: {
+            text: 'Personal Performance Profile',
+            x: -80
+        },
+
+        pane: {
+            size: '80%'
+        },
+
+        xAxis: {
+            categories: ['Teamwork', 'Communication', 'Initiative', 'Supportiveness',
+                'Professionalism'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+        },
+
+        yAxis: {
+            gridLineInterpolation: 'polygon',
+            lineWidth: 0,
+            min: 0
+        },
+
+        legend: {
+            align: 'right',
+            verticalAlign: 'top',
+            y: 70,
+            layout: 'vertical'
+        },
+
+        series: [{
+            name: name,
+            data: [teamwork,comm,init,supp, prof],
+            pointPlacement: 'on'
+        }]
+
+    });
+</script>

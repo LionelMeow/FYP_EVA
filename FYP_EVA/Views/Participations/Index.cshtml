@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FYP_EVA.Models.Participation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@if (TempData["ActionMessage"] != null)
+{
+    <div>
+        <h2>@TempData["ActionMessage"]</h2>
+    </div>
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Event.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer.TPNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer.TPNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @if (Convert.ToString(Session["UserType"]) != "Volunteer")
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.ParticipationID }) <span> | </span>
+                @Html.ActionLink("Details", "Details", new { id = item.ParticipationID }) <span> | </span>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ParticipationID })
+            }
+          
+            <span> | </span>
+            @Html.ActionLink("Approve", "ApproveAction", new { id = item.ParticipationID })
+               
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<FYP_EVA.Models.Participation>
+
+
+@foreach (var item in Model)
+{
+    @Html.DisplayFor(modelItem => item.VolunteerID)
+    @*Html.ActionLink("Details", "Details", "Volunteers", new { id = item.VolunteerID })*@
+}

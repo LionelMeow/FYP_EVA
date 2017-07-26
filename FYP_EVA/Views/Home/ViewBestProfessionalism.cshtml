@@ -1,0 +1,14 @@
+﻿@model FYP_EVA.Models.Volunteer
+
+<h2> Best volunteer with best professional rating</h2>
+
+
+<h2>Student Name @Html.DisplayFor(model => model.VolunteerName)</h2>
+
+<p>TP Number - @Html.DisplayFor(model => model.TPNumber) </p>
+
+<p>Phone Number - @Html.DisplayFor(model => model.PhoneNumber) </p>
+
+<p>
+    @Html.ActionLink("Link to Profile", "Profile", "Volunteers", new { id = Model.VolunteerID }, null)
+</p>  

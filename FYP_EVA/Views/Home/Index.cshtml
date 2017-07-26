@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+    @if (@ViewBag.LoginStatus != null)
+    {
+        <div style="border: 1px solid red; margin-top: 10px;">
+            @ViewBag.LoginStatus
+        </div>
+    }
+
+@if (TempData["ActionMessage"] != null)
+{
+    <div>
+        <h2>@TempData["ActionMessage"]</h2>
+    </div>
+}
+
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#bs-carousel" data-slide-to="1"></li>
+        <li data-target="#bs-carousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item slides active">
+            <div class="slide-1"></div>
+            <div class="hero">
+                <hgroup style="text-transform:none !important">
+                    <h1>Volunteer</h1>
+                    <h3>Find volunteering events that you care about</h3>
+                </hgroup>
+                <button class="btn btn-hero btn-lg" role="button">
+                    @Html.ActionLink("View Events", "Login", "Home", null, new { @style = "color:white" })
+                </button>
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-2"></div>
+            <div class="hero">
+                <hgroup style="text-transform:none !important">
+                    <h1>Learn</h1>
+                    <h3>Connect with different people and working together</h3>
+                </hgroup>
+                <button class="btn btn-hero btn-lg" role="button">
+                    @Html.ActionLink("Register/Login", "Login", "Home", null, new { @style = "color:white" })
+                </button>
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-3"></div>
+            <div class="hero">
+                <hgroup style="text-transform:none !important">
+                    <h1>Leverage</h1>
+                    <h3>Use your volunteering profile as advantage for job applications &amp; interviews</h3>
+                </hgroup>
+                <button class="btn btn-hero btn-lg" role="button">
+                    @Html.ActionLink("View Profile", "Login", "Home", null, new { @style = "color:white" })
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
